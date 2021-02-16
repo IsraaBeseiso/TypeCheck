@@ -1,4 +1,3 @@
-  
 let db;
 
 const request = indexedDB.open("scores", 1);
@@ -8,10 +7,7 @@ request.onupgradeneeded = function (event) {
   db.createObjectStore("pending", { autoIncrement: true });
 };
 
-
-// some starter code 
-
-
+// some starter code
 
 // function checkDatabase() {
 //     const transaction = db.transaction(["pending"], "readwrite");
@@ -37,7 +33,5 @@ request.onupgradeneeded = function (event) {
 //         }
 //       };
 //     }
-
-
 
 //window.addEventListener("online", checkDatabase);

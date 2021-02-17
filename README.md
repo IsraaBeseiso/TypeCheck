@@ -1,1 +1,1 @@
-# typing-test-
+# TypeCheck

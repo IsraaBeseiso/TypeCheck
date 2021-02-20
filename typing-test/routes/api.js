@@ -24,7 +24,7 @@ router.post("/api/highscore", ({body}, res) => {
   });
   
   router.get("/api/highscore", (req, res) => {
-    Highscore.find({}).sort({date: -1})
+    Highscore.find({}).sort({score: -1})
       .then(dbHighscore => {
         res.json(dbHighscore);
       })
@@ -33,4 +33,16 @@ router.post("/api/highscore", ({body}, res) => {
       });
   });
   
+//personal highscore route
+
+router.get("/api/personalhighscore/:param", (req, res) => {
+  Highscore.find({username:param}).sort({date: -1})
+    .then(dbPersonalHighscore => {
+      res.json(dbPersonalHighscore);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
   module.exports = router;

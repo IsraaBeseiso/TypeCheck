@@ -13,11 +13,12 @@ function LoginForm(props) {
     <div class="login-page">
       <div class="form">
         <form class="login-form">
-          <input type="text" placeholder="username" />
+          <input type="text" placeholder="name" />
           <input type="password" placeholder="password" />
-          <button>login</button>
+          <input type="text" placeholder="email address" />
+          <button>create</button>
           <p class="message">
-            Not registered? <a href="RegisterForm">Create an account</a>
+            Already registered? <a href="./LoginForm">Sign In</a>
           </p>
         </form>
       </div>

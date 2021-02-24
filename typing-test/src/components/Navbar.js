@@ -22,7 +22,7 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color="light" expand="md">
-        <NavbarBrand href="/">TypeCheck</NavbarBrand>
+        <NavbarBrand href="/public/Logo.png">Typecheck</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

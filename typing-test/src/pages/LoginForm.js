@@ -1,5 +1,5 @@
 import React from "react";
-import "./LoginForm.css";
+import "./Authentication.css";
 import $ from "jquery";
 
 function LoginForm(props) {
@@ -11,6 +11,12 @@ function LoginForm(props) {
 
   return (
     <div class="login-page">
+      <div>
+        <h1 class="title">
+          <h1>TypeCheck</h1>
+          <h3>Please Sign in</h3>
+        </h1>
+      </div>
       <div class="form">
         <form class="login-form">
           <input type="text" placeholder="username" />

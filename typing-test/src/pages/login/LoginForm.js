@@ -3,9 +3,9 @@ import "./Authentication.css";
 import $ from "jquery";
 
 function LoginForm(props) {
-  $(".message a").click(function () {
-    $("form").animate({ height: "toggle", opacity: "toggle" }, "slow");
-  });
+  // $(".message a").click(function () {
+  //   $("form").animate({ height: "toggle", opacity: "toggle" }, "slow");
+  // });
 
   // Once API routes are defined they will be used for login
 

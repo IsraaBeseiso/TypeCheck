@@ -1,10 +1,10 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Dashboard from "./pages/Dashboard";
+// import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import LoginForm from "./pages/LoginForm";
-import RegisterForm from "./pages/RegisterForm";
+import LoginForm from "./pages/login/LoginForm";
+import RegisterForm from "./pages/login/RegisterForm";
 import Wrapper from "./components/Wrapper";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -14,7 +14,7 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-          {/* <Route exact path="/" component={Dashboard} /> */}
+          {/* <Route exact path="/" component={Home} /> */}
           <Route exact path="/" component={LoginForm} />
           <Route exact path="/LoginForm" component={LoginForm} />
           <Route exact path="/RegisterForm" component={RegisterForm} />

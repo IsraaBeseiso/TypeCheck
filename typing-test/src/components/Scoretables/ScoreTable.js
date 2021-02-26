@@ -9,10 +9,14 @@ function Scoretable() {
   // dummy hish scores
   return (
     <div>
-      <Container className="border ml-0 col-2 text-center">
+      <Container
+        className="scorecol ml-0 
+      col-7 text-center"
+      >
         <Row className="justify-content-xs-left">
           <Col sm="2">
-            <h1>High Scores!</h1>
+            <h1>Normal Mode!</h1>
+            <h5>High Scores</h5>
             <h3>Overall</h3>
             <OverallTable />
 

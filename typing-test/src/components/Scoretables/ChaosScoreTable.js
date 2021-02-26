@@ -9,7 +9,10 @@ function ChaosScoretable() {
   // dummy hish scores
   return (
     <div>
-      <Container className="border ml-0 col-2 text-center">
+      <Container
+        className="scorecol mr-0 
+      col-7 text-center"
+      >
         <Row className="justify-content-xs-left">
           <Col sm="2">
             <h1>Chaos Mode!</h1>

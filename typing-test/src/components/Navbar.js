@@ -13,6 +13,7 @@ import {
   DropdownItem,
   NavbarText,
 } from "reactstrap";
+import Logo from "./Logo";
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,16 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color="light" expand="md">
-        <NavbarBrand href="/public/Logo.png">Typecheck</NavbarBrand>
+        <NavbarBrand>
+          <img
+            src="./images/logo.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            alt=""
+          ></img>
+          Typecheck
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

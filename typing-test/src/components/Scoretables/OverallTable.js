@@ -11,12 +11,7 @@ function OverallTable(props) {
   // let tableContents =
   return (
     <div>
-      <Table
-        style={{ color: "#03045e" }}
-        bordered
-        size="sm"
-        className="scoretable"
-      >
+      <Table size="sm" className="scoretable">
         {/* {tableContents} */}
         <thead>
           <tr>

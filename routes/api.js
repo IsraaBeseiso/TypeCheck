@@ -1,9 +1,11 @@
 const router = require("express").Router();
+
 const Highscore = require("../models/highscore.js");
 
 //can't promise that this is correct yet
 
 router.post("/api/highscores", ({body}, res) => {
+
     Highscore.create(body)
       .then(dbHighscore => {
         res.json(dbHighscore);
@@ -12,8 +14,9 @@ router.post("/api/highscores", ({body}, res) => {
         res.status(400).json(err);
       });
   });
-  
+
   router.post("/api/highscores/bulk", ({body}, res) => {
+
     Highscore.insertMany(body)
       .then(dbHighscore => {
         res.json(dbHighscore);
@@ -23,6 +26,7 @@ router.post("/api/highscores", ({body}, res) => {
       });
   });
   
+
 
   //get top 10
   router.get("/api/highscores", (req, res) => {
@@ -84,6 +88,7 @@ router.post("/api/highscores", ({body}, res) => {
     // }
     //   .catch(err => {
     //     res.status(400).json(err);
+
 
   });
   

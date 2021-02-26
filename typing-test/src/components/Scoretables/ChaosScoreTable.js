@@ -9,7 +9,7 @@ class ChaosScoretable extends Component {
     return (
       <div>
         <Container className="border ml-0 col-2 offset-10 text-center">
-          <Row className="justify-content-md-right">
+          <Row>
             <Col sm="2">
               <h1>CHAOS MODE!</h1>
               <h3>High Scores</h3>

@@ -4,15 +4,15 @@ import { Row, Col, Container, Table } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./ScoreTable.css";
 
-class Scoretable extends Component {
+class ChaosScoretable extends Component {
   render() {
     return (
       <div>
-        <Container className="border ml-0 col-2 text-center">
-          <Row className="justify-content-xs-left">
+        <Container className="border ml-0 col-2 offset-10 text-center">
+          <Row className="justify-content-md-right">
             <Col sm="2">
-              <h1>High Scores!</h1>
-
+              <h1>CHAOS MODE!</h1>
+              <h3>High Scores</h3>
               <h3>Overall</h3>
               <Table bordered size="sm" class="scoretable">
                 <thead>
@@ -94,4 +94,4 @@ class Scoretable extends Component {
     );
   }
 }
-export default Scoretable;
+export default ChaosScoretable;

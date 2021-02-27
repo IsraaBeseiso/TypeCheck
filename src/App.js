@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Navbar />
       <Wrapper>
-        <Route exact path="/" component={LoginForm} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/LoginForm" component={LoginForm} />
         <Route exact path="/RegisterForm" component={RegisterForm} />
         <Route exact path="/home" component={Home} />

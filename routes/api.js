@@ -127,7 +127,7 @@ router.post("/api/newUser", ({body}, res) => {
   } else (res.status (400).json({error:"Must have username, email and password"}))
 });
 
-router.get ("/api/getUsers", (req, res) =>{
+router.get ("/api/getUser", (req, res) =>{
   console.log("hello")
 User.find ({}).then(data => res.json(data)) 
 })

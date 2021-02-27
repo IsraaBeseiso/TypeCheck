@@ -18,10 +18,10 @@ function LoginForm(props) {
         </h1>
       </div>
       <div class="form">
-        <form class="login-form">
-          <input type="text" placeholder="name" />
-          <input type="password" placeholder="password" />
-          <input type="text" placeholder="email address" />
+        <form class="signup-form">
+          <input type="text" placeholder="username" id = "username-signup"/>
+          <input type="password" placeholder="password" id = "password-signup"/>
+          <input type="text" placeholder="email address" id = "email-signup"/>
           <button>create</button>
           <p class="message">
             Already registered? <a href="./LoginForm">Sign In</a>

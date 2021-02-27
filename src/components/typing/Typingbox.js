@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 
-
 const testStrings = [
   "Test string one",
   "Test string two",
@@ -10,7 +9,7 @@ const testStrings = [
   "Test string five"
 ];
 
-const TypingBox = () => {
+const Home = () => {
   const [currentTestStringIndex, setCurrentTestStringIndex] = React.useState(0);
   const [inputValue, setInputValue] = React.useState("");
 
@@ -53,4 +52,4 @@ const TypingBox = () => {
 };
 
 
-export default TypingBox;
+export default Home;

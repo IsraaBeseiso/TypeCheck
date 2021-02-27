@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <div className="type-checker-container">
-      <h1>Type Checker</h1>
+      <h1>Type Test</h1>
       <div className="test-string-container">
         <p id="test-string">{testStrings[currentTestStringIndex]}</p>
       </div>

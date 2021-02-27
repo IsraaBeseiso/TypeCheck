@@ -4,6 +4,7 @@ import ChaosScoreTable from "../components/scoretables/ChaosScoreTable";
 import Timer from "../components/Timer";
 import { Row, Col } from "reactstrap";
 import TypingBox from "../components/typing/TypingBox";
+
 function Home() {
   return (
     <div>

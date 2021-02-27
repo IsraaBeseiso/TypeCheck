@@ -1,5 +1,10 @@
 const router = require("express").Router();
 const Highscore = require("../models/highscore.js");
+const User = require("../models/userModel.js") 
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey');
+ 
+
 
 //can't promise that this is correct yet
 
@@ -99,4 +104,31 @@ router.get("/api/personalhighscores/:param", (req, res) => {
     });
 });
 
+
+router.post("/api/newUser", ({body}, res) => {
+  if (body.username && body.email && body.password){
+    User.find({email : body.email}).then (data => {
+      console.log(data)
+      if (data)// fix truthy statement , find a way to compare data to body.email
+      {return (res.status (400).json({error:"Email is already taken"}))
+    } else{
+
+    } 
+     
+    })
+    var password = cryptr.encrypt(body.password)
+    User.create({username:body.username, password:password, email: body.email})
+    .then(dbHighscore => {
+      res.json(dbHighscore);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    }); 
+  } else (res.status (400).json({error:"Must have username, email and password"}))
+});
+
+router.get ("/api/getUsers", (req, res) =>{
+  console.log("hello")
+User.find ({}).then(data => res.json(data)) 
+})
   module.exports = router;

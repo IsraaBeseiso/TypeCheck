@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import LoginForm from "./Login/LoginForm";
 import RegisterForm from "./Login/RegisterForm";
 import Wrapper from "./components/Wrapper";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

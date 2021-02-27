@@ -1,37 +1,52 @@
 import React from "react";
-import "./style.css";
+import "./styles.css";
 
 const testStrings = [
-  'Type this test as fast as you can.',
-  'Type this one even faster if you can.'
-]
+  "Test string one",
+  "Test string two",
+  "Test string three",
+  "Test string four",
+  "Test string five"
+];
 
 const Home = () => {
-  const [testStringIndex, setTestStringIndex] = React.useState(0);
+  const [currentTestStringIndex, setCurrentTestStringIndex] = React.useState(0);
+  const [inputValue, setInputValue] = React.useState("");
 
-  const handleCompleteTest = React.useCallback(() => {
+  const handleOnStringMatch = React.useCallback(
+    (event) => {
+      const { value } = event.target;
 
-  }, []);
-
-  const handleCheckValidInput = React.useCallback((e) => {
-    const { value } = e.target;
-    if (value === testStrings[testStringIndex]) {
-      // Stop time
-      // POST the time to endpoint
-      // Increment testStringIndex
-
-      setTestStringIndex(testStringIndex + 1);
-    }
-  }, []);
+      if (value === testStrings[currentTestStringIndex]) {
+        setInputValue(value);
+        // Instead of using setTimout this is where you'd make a POST request
+        // to your backend endpoint to save the "time".
+        setTimeout(() => {
+          setInputValue("");
+          setCurrentTestStringIndex(
+            currentTestStringIndex < testStrings.length - 1
+              ? currentTestStringIndex + 1
+              : 0
+          );
+        }, 1000);
+      } else {
+        setInputValue(value);
+      }
+    },
+    [currentTestStringIndex]
+  );
 
   return (
-    <div className="home-container">
-      <div className="text-container">
-        <p>{testStrings[testStringIndex]}</p>
+    <div className="type-checker-container">
+      <h1>Type Checker</h1>
+      <div className="test-string-container">
+        <p id="test-string">{testStrings[currentTestStringIndex]}</p>
       </div>
-      <textarea className="text-area" onChange={handleCheckValidInput} />
+      <textarea
+        className="text-area"
+        onChange={handleOnStringMatch}
+        value={inputValue}
+      />
     </div>
-  )
-}
-
-export default Home;
+  );
+};

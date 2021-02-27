@@ -1,12 +1,12 @@
 import React from "react";
-import "./style.css";
+import "./TypingBox.css";
 
 const testStrings = [
   "Test string one",
   "Test string two",
   "Test string three",
   "Test string four",
-  "Test string five"
+  "Test string five",
 ];
 
 const Home = () => {
@@ -50,6 +50,5 @@ const Home = () => {
     </div>
   );
 };
-
 
 export default Home;

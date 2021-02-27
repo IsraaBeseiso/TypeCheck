@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./style.css";
 
 const testStrings = [
   "Test string one",
@@ -50,3 +50,6 @@ const Home = () => {
     </div>
   );
 };
+
+
+export default Home;

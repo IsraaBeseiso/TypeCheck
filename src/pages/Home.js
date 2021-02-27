@@ -1,9 +1,10 @@
 import React from "react";
-import Scoretable from "../components/Scoretables/ScoreTable";
-import ChaosScoreTable from "../components/Scoretables/ChaosScoreTable";
+import Scoretable from "../components/scoretables/ScoreTable";
+import ChaosScoreTable from "../components/scoretables/ChaosScoreTable";
 import Timer from "../components/Timer";
 import { Row, Col } from "reactstrap";
-import Typingbox from "../components/Typingbox"
+import TypingBox from "../components/typing/TypingBox";
+
 function Home() {
   return (
     <div>
@@ -14,13 +15,12 @@ function Home() {
         </Col>
 
         <Col>
-
           <Row>
             <Timer />
           </Row>
 
           <Row>
-           <Typingbox/>
+            <TypingBox />
           </Row>
         </Col>
 

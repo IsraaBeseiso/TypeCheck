@@ -1,6 +1,35 @@
 const express = require("express");
 
 const mongoose = require("mongoose");
+const session = require('express-session');
+
+
+
+
+const MongoStore = require('connect-mongo').default;
+
+app.use(session({
+  secret: 'foo',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"})
+}));
+
+
+//maybe a variation of this?
+
+// const sess = {
+//    secret: 'Secret Secret',
+//    cookie: {},
+//    resave: false,
+//    saveUninitialized: true,
+//    store: new MongoStore({
+//       db: sequelize
+//    })
+// };
+
+
 //const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3005;

@@ -6,10 +6,17 @@ const cryptr = new Cryptr('myTotalySecretKey');
  
 
 
-//can't promise that this is correct yet
+///api/highscore?
 
 router.post("/api/highscores", ({body}, res) => {
-    Highscore.create(body)
+    Highscore.create({
+      //needs session setup
+      username: req.session.username,
+      //username: "placeholder" if testing before session?
+      score: req.body.score,
+      type: req.body.type
+
+    })
       .then(dbHighscore => {
         res.json(dbHighscore);
       })
@@ -77,6 +84,7 @@ router.post("/api/highscores", ({body}, res) => {
     })
 
     //need a line where it filters to only username = the logged in username and type = true
+    //where highscore.username = session.username
 
     .sort((a, b) => b.score - a.score)
     .slice(0, 10)
@@ -119,7 +127,13 @@ router.post("/api/newUser", ({body}, res) => {
     var password = cryptr.encrypt(body.password)
     User.create({username:body.username, password:password, email: body.email})
     .then(dbHighscore => {
+
+      //Saving the username as a session for the highscores
+        req.session.save(() => {
+        req.session.username = dbHighscore.username;
+        req.session.loggedIn = true;
       res.json(dbHighscore);
+               })
     })
     .catch(err => {
       res.status(400).json(err);

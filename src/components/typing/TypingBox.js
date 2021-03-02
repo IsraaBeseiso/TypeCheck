@@ -1,5 +1,6 @@
 import React from "react";
 import "./TypingBox.css";
+//import Timer from "./Timer"
 
 const testStrings = [
   "Test string one",
@@ -35,6 +36,15 @@ const TypingBox = () => {
     },
     [currentTestStringIndex]
   );
+
+
+  // if vars could be passed use this
+  // if (testType) {
+  //   testText = article
+  // }
+  // else{
+  //   testText = chaosString
+  // }
 
   return (
     <div className="type-checker-container">

@@ -13,7 +13,6 @@
 }
 
 table {
-  border-collapse: collapse;
 }
 th {
   border-bottom: 1px solid #03045e;
@@ -24,6 +23,7 @@ td {
 }
 
 .scorecol {
+  width: 25%;
   font-family: F25_Executive;
   background-color: #90e0ef;
   border-style: solid;

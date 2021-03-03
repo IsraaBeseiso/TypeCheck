@@ -110,7 +110,7 @@ function NormScoretable() {
 
   return (
     <div>
-      <Container className="scorecol ml-0 col-md-6 text-center">
+      <Container className="scorecol ml-0 col-md-8 text-center">
         <Row className="justify-content-xs-left">
           <Col>
             <h1>Normal Mode!</h1>

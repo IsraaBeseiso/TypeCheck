@@ -4,6 +4,7 @@ import { Row, Col, Container, Table } from "reactstrap";
 import "./ScoreTable.css";
 
 function OverallTable(props) {
+  console.log(props.overall);
   return (
     <div>
       <table className="table">

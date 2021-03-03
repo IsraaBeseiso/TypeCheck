@@ -7,10 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarText,
 } from "reactstrap";
 
@@ -22,7 +18,7 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color="light" expand="md">
-        <NavbarBrand href="/public/Logo.png">Typecheck</NavbarBrand>
+        <NavbarBrand href="/">Typecheck</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -33,18 +29,22 @@ const Navigation = (props) => {
               >
                 GitHub Repository
               </NavLink>
+              <NavLink href="./RegisterForm">
+             Login/Register
+             
+              </NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Options
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>My Dashboard</DropdownItem>
-                <DropdownItem>Goodbye</DropdownItem>
+                <DropdownItem>Login</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>Reset</DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           </Nav>
           <NavbarText>Welcome!</NavbarText>
         </Collapse>

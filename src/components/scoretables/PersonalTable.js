@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "reactstrap";
+// import { Table } from "reactstrap";
 // import "bootstrap/dist/css/bootstrap.css";
 import "./ScoreTable.css";
 
@@ -10,45 +10,27 @@ function OverallTable(props) {
   // in row put number, name , and WPM
   // let tableContents =
   return (
-    <div>
-      <Table size="sm" className="scoretable">
-        {/* {tableContents} */}
+    <>
+      <table className="table">
         <thead>
           <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>WPM</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Username</th>
+            <th scope="col">WPM</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Name</td>
-            <td>WPM</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Name</td>
-            <td>WPM</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Name</td>
-            <td>WPM</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Name</td>
-            <td>WPM</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Name</td>
-            <td>WPM</td>
-          </tr>
+          {props.Personal.map((scores) => (
+            <tr key={scores.id}>
+              <td>{scores.username}</td>
+              <td>{scores.date}</td>
+              <td>{scores.score}</td>
+            </tr>
+          ))}
         </tbody>
-      </Table>
-    </div>
+      </table>
+    </>
   );
 }
+
 export default OverallTable;

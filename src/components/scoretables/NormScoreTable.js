@@ -25,7 +25,7 @@ function NormScoretable(props) {
             <h5>High Scores</h5>
             <h3>Overall</h3>
             {/* <OverallTable scores={state.topnorm} /> */}
-            <OverallTable Overall={props.Overall} />
+            <OverallTable overall={props.Overall} />
 
             <h3>Personal</h3>
             {/* <PersonalTable scores={state.toppersonalnorm} /> */}

@@ -7,13 +7,13 @@ import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 
 function ChaosScoretable() {
-  useEffect(() => {
-    axios.get("/api/highscores").then((response) => {
-      console.log(response);
-      //check for what setState should be called on--might be response.data, etc
-      setState(response);
-    });
-  });
+  // useEffect(() => {
+  //   axios.get("/api/highscores").then((response) => {
+  //     console.log(response);
+  //     //check for what setState should be called on--might be response.data, etc
+  //     setState(response);
+  //   });
+  // });
   return (
     <div>
       <Container className="scorecol mr-0 col-md-6 text-center">

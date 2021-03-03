@@ -104,8 +104,8 @@ function Scoretable() {
 
   const [dummyOverall, setDummyOverall] = useState([]);
   const [dummyPersonal, setDummyPersonal] = useState([]);
-  setDummyOverall(dummyOverall);
-  setDummyPersonal(dummyPersonal);
+  // setDummyOverall(dummyOverall);
+  // setDummyPersonal(dummyPersonal);
 
   // useEffect(() => {
   //   axios.get("/api/highscores").then((response) => {

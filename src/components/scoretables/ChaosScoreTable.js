@@ -6,7 +6,99 @@ import "./ScoreTable.css";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 
-function ChaosScoretable() {
+function ChaosScoreTable() {
+  const dummychaos = {
+    dummytopchaos: [
+      {
+        id: 1,
+        username: "TomTom",
+        score: 15,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 2,
+        username: "Sally",
+        score: 34,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 3,
+        username: "typeking",
+        score: 8,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 4,
+        username: "newbytyper",
+        score: 42,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 5,
+        username: "john",
+        score: 51,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 6,
+        username: "TomTom",
+        score: 27,
+        type: true,
+        date: Date.now,
+      },
+    ],
+    dummytoppersonalchaos: [
+      {
+        id: 1,
+        username: "TomTom",
+        score: 7,
+        type: true,
+        date: "11/17/20",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 16,
+        type: true,
+        date: "11/18/20",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 29,
+        type: true,
+        date: "1/23/21",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 27,
+        type: true,
+        date: "2/14/21",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 13,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 21,
+        type: true,
+        date: Date.now,
+      },
+    ],
+  };
+  console.log(dummychaos);
+
   // useEffect(() => {
   //   axios.get("/api/highscores").then((response) => {
   //     console.log(response);
@@ -16,21 +108,22 @@ function ChaosScoretable() {
   // });
   return (
     <div>
-      <Container className="scorecol mr-0 col-md-6 text-center">
-        <Row className="justify-content-right mr-0">
+      <Container className="scorecol ml-0 col-md-6 text-center">
+        <Row className="justify-content-xs-left">
           <Col>
-            <h1>Chaos Mode!</h1>
+            <h1>Normal Mode!</h1>
             <h5>High Scores</h5>
             <h3>Overall</h3>
-            <OverallTable />
+            {/* <OverallTable scores={state.topnorm} /> */}
+            <OverallTable overall={dummychaos.dummytopchaos} />
 
             <h3>Personal</h3>
-            <PersonalTable />
+            {/* <PersonalTable scores={state.toppersonalnorm} /> */}
+            <PersonalTable personal={dummychaos.dummytoppersonalchaos} />
           </Col>
         </Row>
       </Container>
     </div>
   );
 }
-
-export default ChaosScoretable;
+export default ChaosScoreTable;

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "reactstrap";
 // import "bootstrap/dist/css/bootstrap.css";
 import "./ScoreTable.css";
-import OverallTable from "./OverallTable";
-import PersonalTable from "./PersonalTable";
 import axios from "axios";
-import NormScoretable from "./NormScoreTable";
-import ChaosScoretable from "./ChaosScoreTable";
+import NormScoreTable from "./NormScoreTable";
+import ChaosScoreTable from "./ChaosScoreTable";
 
 function Scoretable() {
   const dummyresponse = {
@@ -98,6 +96,94 @@ function Scoretable() {
         date: Date.now,
       },
     ],
+    dummytopchaos: [
+      {
+        id: 1,
+        username: "TomTom",
+        score: 15,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 2,
+        username: "Sally",
+        score: 34,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 3,
+        username: "typeking",
+        score: 8,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 4,
+        username: "newbytyper",
+        score: 42,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 5,
+        username: "john",
+        score: 51,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 6,
+        username: "TomTom",
+        score: 27,
+        type: true,
+        date: Date.now,
+      },
+    ],
+    dummytoppersonalchaos: [
+      {
+        id: 1,
+        username: "TomTom",
+        score: 7,
+        type: true,
+        date: "11/17/20",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 16,
+        type: true,
+        date: "11/18/20",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 29,
+        type: true,
+        date: "1/23/21",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 27,
+        type: true,
+        date: "2/14/21",
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 13,
+        type: true,
+        date: Date.now,
+      },
+      {
+        id: 1,
+        username: "TomTom",
+        score: 21,
+        type: true,
+        date: Date.now,
+      },
+    ],
   };
   console.log(dummyresponse);
   // const [state, setState] = useState({ topnorm: [], topchaos: [] });
@@ -111,7 +197,8 @@ function Scoretable() {
   // });
   return (
     <div>
-      <NormScoretable response={dummyresponse} />
+      <NormScoreTable response={dummyresponse} />
+      <ChaosScoreTable response={dummyresponse} />
     </div>
   );
 }

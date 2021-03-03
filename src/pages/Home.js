@@ -24,9 +24,7 @@ function Home() {
           </Row>
         </Col>
 
-        <Col>
-          <ChaosScoreTable />
-        </Col>
+        <Col></Col>
       </Row>
     </div>
   );

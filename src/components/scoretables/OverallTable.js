@@ -18,8 +18,8 @@ function OverallTable(props) {
         <tbody>
           {props.overall.map((scores) => (
             <tr key={scores.id}>
+              <td></td>
               <td>{scores.username}</td>
-              <td>{scores.date}</td>
               <td>{scores.score}</td>
             </tr>
           ))}

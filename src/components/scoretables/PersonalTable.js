@@ -16,13 +16,14 @@ function OverallTable(props) {
         <thead>
           <tr>
             <th scope="col">Rank</th>
-            <th scope="col">Username</th>
+            <th scope="col">Date</th>
             <th scope="col">WPM</th>
           </tr>
         </thead>
         <tbody>
           {props.personal.map((scores) => (
             <tr key={scores.id}>
+              <td></td>
               <td>{scores.date}</td>
               <td>{scores.score}</td>
             </tr>

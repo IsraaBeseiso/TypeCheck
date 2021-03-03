@@ -15,9 +15,9 @@ function Home() {
         </Col>
 
         <Col>
-          <Row>
+          {/* <Row>
             <Timer />
-          </Row>
+          </Row> */}
 
           <Row>
             <TypingBox />

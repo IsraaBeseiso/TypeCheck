@@ -9,6 +9,18 @@ let testString = ""
 let testStringInit = ""
 let lastPeriod = ""
 let userinput = ""
+var timer = ""
+let clockTimer = ""
+let userLength = ""
+let wpm = ""
+let trimmedArticle = ""
+let errors = ""
+let trimmedChaos = ""
+let chaosString = ""
+let userwpm = ""
+
+
+
 
 
 const TypingBox = () => {
@@ -24,6 +36,7 @@ const TypingBox = () => {
   const [isActive, setIsActive] = useState(false);
 
   function generateNormTest() {
+    userwpm = ""
     setIsActive(!isActive);
     testType = true;
     renderTest();
@@ -33,8 +46,9 @@ const TypingBox = () => {
 
   function generateChaosTest() {
     //generate random string of 1000 characters cap/lowercase/symbols
+    userwpm = ""
     setIsActive(!isActive);
- let chaosString = "";
+
     for (let i = 1; i < 1000; i++) {
         let newLetter = charArray[Math.floor(Math.random() * 75)];
         chaosString += newLetter;
@@ -44,20 +58,21 @@ const TypingBox = () => {
     renderTest();
   }
 
-  useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((seconds) => seconds - 1);
-      }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
+  // useEffect(() => {
+  //   let interval = null;
+  //   if (isActive) {
+  //     interval = setInterval(() => {
+  //       setSeconds((seconds) => seconds - 1);
+  //     }, 1000);
+  //   } else if (!isActive && seconds !== 0) {
+  //     clearInterval(interval);
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [isActive, seconds]);
 
 
 function renderTest() {
+  testTimer();
   if (testType) {
     testStringInit = txtgen.article();
     //trims the article down to 600 characters
@@ -83,6 +98,7 @@ function renderTest() {
     //document.getElementByIdName("test-string").style.overflowWrap = "break-word"; -doesn't work in React
     //If we want figure out how to set the css to overflow-wrap : break-word for chaosString and overflow-wrap: normal for normal mode
     testString = chaosString;
+
   }
 
 
@@ -95,10 +111,107 @@ function renderTest() {
 
 }
 
+//does the countdown 
+function testTimer(){
+ 
+
+   timer=60;
+clockTimer = setInterval(function () {
+  //if we want to use jquery instead of react to change the html
+  //timerLeft.innerHTML = "TimeLeft: " + timer;
+  timer --;
+  document.getElementById("timestring").innerHTML = timer;
+  console.log(timer);
+  if (timer === 1)
+  { 
+    clearInterval(timer);
+    timer = 0;
+    if (testType) {
+      scoreResultsNorm()
+    }
+    else{
+      scoreResultsChaos()
+    }
+    
+  //put when time is out function name here
+  }
+  }, 1000);
+  //input_area.disabled = true; 
+
+  
+}
 
 
+function scoreResultsNorm(){
+  //scores results of a normal test
+  
+  userinput = document.getElementById("userinput").value;
+  console.log(userinput);
+  userLength = userinput.length;
+  
+   wpm = 0;
+   errors = 0;
+  //trims the article down the how many character the user typed so they can be compared character by character
+  trimmedArticle = testString.substring(0, userLength);
+  
+  for (let i = 0; i < userinput.length; i++) {
+      //counts the number of spaces in the original trimmed article and that is your word count
+      if (trimmedArticle[i] === " ") {
+          wpm++;
+      }
+      
+      }
+      for (let i = 0; i < userinput.length; i++) {
+        if (userinput[i] != trimmedArticle[i]) {
+            errors++;
+            //if we want to subtract score
+            wpm--;
+            
+        }
+        
+      }
+console.log("wpm" + wpm);
+userwpm = "your wpm is: " + wpm;
+console.log(userwpm);
+
+    }
+
+function scoreResultsChaos(){
+      //scores the results of a chaos test
+      wpm = 0;
+      errors = 0;
+
+  userinput = document.getElementById("userinput").value;
+  console.log(userinput);
+  userLength = userinput.length;
+  
+  //removing the linebreaks
+  trimmedChaos = testString.replace(/(\r\n|\n|\r)/gm, ""); 
+
+  //trims the prompt down the how many character the user typed so they can be compared character by character
+  trimmedChaos =trimmedChaos.substring(0, userLength);
 
 
+  wpm = userLength;
+  console.log("wpm1 " + wpm);
+  console.log(trimmedChaos)
+  
+  for (let i = 0; i < userinput.length; i++) {
+    if (userinput[i] != trimmedChaos[i]) {
+        errors++;
+        //if we want to subtract score
+        wpm--;
+       
+    }
+  
+  }
+   console.log("wpm2 " + wpm);
+   userwpm = "your wpm is: " + wpm;
+   console.log(userwpm);
+
+  }
+
+  
 
 
 
@@ -131,7 +244,11 @@ function renderTest() {
   return (
 <div>
     <div className="app col-md-2 ml-5 border text-center">
-      <div className="time">{seconds}s</div>
+      {/* <div className="time">{timer}s</div> */}
+      <div className="time-string-container">
+          <p id="timestring">{timer}</p>
+      </div>
+
       <div className="row justify-content-center">
         <button
           className={` norm-button button-primary text-center button-primary-${
@@ -158,10 +275,13 @@ function renderTest() {
       <div className="test-string-container">
         <p id="test-string">{testString}</p>
       </div>
+      <p id="userwpm">{userwpm}</p>
       <textarea
         className="text-area"
         id="userinput"
-        onChange={handleOnStringMatch}
+         onChange={handleOnStringMatch}
+        //just to make the field editable for now
+        
         value={inputValue}
       />
     </div>

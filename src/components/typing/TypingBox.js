@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-import React from "react";
-import "./style.css";
-=======
 import React, { useState, useEffect } from "react";
 import "./TypingBox.css";
 //import Timer from "./Timer"
@@ -26,7 +21,6 @@ let userwpm = ""
 
 
 
->>>>>>> main
 
 
 const TypingBox = () => {

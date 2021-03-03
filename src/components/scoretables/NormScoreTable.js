@@ -4,6 +4,7 @@ import { Row, Col, Container } from "reactstrap";
 import "./ScoreTable.css";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
+
 // import axios from "axios";
 
 function NormScoretable(props) {
@@ -25,11 +26,11 @@ function NormScoretable(props) {
             <h5>High Scores</h5>
             <h3>Overall</h3>
             {/* <OverallTable scores={state.topnorm} /> */}
-            <OverallTable overall={props.Overall} />
+            <OverallTable overall={props.response.dummytopnorm} />
 
             <h3>Personal</h3>
             {/* <PersonalTable scores={state.toppersonalnorm} /> */}
-            <PersonalTable Personal={props.Personal} />
+            <PersonalTable personal={props.response.dummytoppersonalnorm} />
           </Col>
         </Row>
       </Container>

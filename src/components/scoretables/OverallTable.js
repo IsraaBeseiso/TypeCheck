@@ -15,13 +15,13 @@ function OverallTable(props) {
           </tr>
         </thead>
         <tbody>
-          {/* {props.overall.map((scores) => (
+          {props.overall.map((scores) => (
             <tr key={scores.id}>
               <td>{scores.username}</td>
               <td>{scores.date}</td>
               <td>{scores.score}</td>
             </tr>
-          ))} */}
+          ))}
         </tbody>
       </table>
     </div>

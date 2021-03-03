@@ -9,8 +9,8 @@ import NormScoretable from "./NormScoreTable";
 import ChaosScoretable from "./ChaosScoreTable";
 
 function Scoretable() {
-  const response = {
-    dummyOverall: [
+  const dummyresponse = {
+    dummytopnorm: [
       {
         id: 1,
         username: "TomTom",
@@ -54,7 +54,7 @@ function Scoretable() {
         date: Date.now,
       },
     ],
-    dummyPersonal: [
+    dummytoppersonalnorm: [
       {
         id: 1,
         username: "TomTom",
@@ -102,11 +102,6 @@ function Scoretable() {
 
   // const [state, setState] = useState({ topnorm: [], topchaos: [] });
 
-  const [dummyOverall, setDummyOverall] = useState([]);
-  const [dummyPersonal, setDummyPersonal] = useState([]);
-  // setDummyOverall(dummyOverall);
-  // setDummyPersonal(dummyPersonal);
-
   // useEffect(() => {
   //   axios.get("/api/highscores").then((response) => {
   //     console.log(response);
@@ -116,7 +111,7 @@ function Scoretable() {
   // });
   return (
     <div>
-      <NormScoretable Overall={dummyOverall} Personal={dummyPersonal} />
+      <NormScoretable response={dummyresponse} />
     </div>
   );
 }

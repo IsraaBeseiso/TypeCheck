@@ -1,9 +1,14 @@
 const router = require("express").Router();
-const Highscore = require("../models/highscores.js");
+const Highscore = require("../models/highscore.js");
+const User = require("../models/userModel.js") 
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey');
+ 
+
 
 //can't promise that this is correct yet
 
-router.post("/api/highscore", ({body}, res) => {
+router.post("/api/highscores", ({body}, res) => {
     Highscore.create(body)
       .then(dbHighscore => {
         res.json(dbHighscore);
@@ -13,7 +18,7 @@ router.post("/api/highscore", ({body}, res) => {
       });
   });
   
-  router.post("/api/highscore/bulk", ({body}, res) => {
+  router.post("/api/highscores/bulk", ({body}, res) => {
     Highscore.insertMany(body)
       .then(dbHighscore => {
         res.json(dbHighscore);
@@ -23,19 +28,73 @@ router.post("/api/highscore", ({body}, res) => {
       });
   });
   
-  router.get("/api/highscore", (req, res) => {
-    Highscore.find({}).sort({score: -1})
-      .then(dbHighscore => {
-        res.json(dbHighscore);
+
+  //get top 10
+  router.get("/api/highscores", (req, res) => {
+    Highscore.find().then(highscore => {
+
+    //returning the top 10 normal
+    const topnorm = highscore.map(i => {
+      const {username, score, type} = i
+      return {username, score, type}
+    })
+
+    //need a line to get rid of ones where type = false
+
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10)
+    
+
+    //returning the top 10 chaos
+    const topchaos = highscore.map(i => {
+      const {username, score, type} = i
+      return {username, score, type}
+    })
+
+    //need a line to get rid of ones where type = true
+
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10)
+    
+
+
+    //returning the top 10 personal norm
+    const toppersonalnorm = highscore.map(i => {
+      const {username, score, type} = i
+      return {username, score, type}
+    })
+
+    //need a line where it filters to only username = the logged in username and type = false
+
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10)
+
+
+    //returning the top 10 personal norm
+    const toppersonalchaos = highscore.map(i => {
+      const {username, score, type} = i
+      return {username, score, type}
+    })
+
+    //need a line where it filters to only username = the logged in username and type = true
+
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10)
+
+
+
+        return res.json(topnorm, topchaos, toppersonalnorm, toppersonalchaos);
+
       })
-      .catch(err => {
-        res.status(400).json(err);
-      });
+    // }
+    //   .catch(err => {
+    //     res.status(400).json(err);
+
   });
   
 //personal highscore route
 
-router.get("/api/personalhighscore/:param", (req, res) => {
+router.get("/api/personalhighscores/:param", (req, res) => {
   Highscore.find({username:param}).sort({date: -1})
     .then(dbPersonalHighscore => {
       res.json(dbPersonalHighscore);
@@ -45,4 +104,31 @@ router.get("/api/personalhighscore/:param", (req, res) => {
     });
 });
 
+
+router.post("/api/newUser", ({body}, res) => {
+  if (body.username && body.email && body.password){
+    User.find({email : body.email}).then (data => {
+      console.log(data)
+      if (data)// fix truthy statement , find a way to compare data to body.email
+      {return (res.status (400).json({error:"Email is already taken"}))
+    } else{
+
+    } 
+     
+    })
+    var password = cryptr.encrypt(body.password)
+    User.create({username:body.username, password:password, email: body.email})
+    .then(dbHighscore => {
+      res.json(dbHighscore);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    }); 
+  } else (res.status (400).json({error:"Must have username, email and password"}))
+});
+
+router.get ("/api/getUser", (req, res) =>{
+  console.log("hello")
+User.find ({}).then(data => res.json(data)) 
+})
   module.exports = router;

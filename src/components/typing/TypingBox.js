@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./style.css";
 
@@ -50,6 +51,7 @@ const TypingBox = () => {
     </div>
   );
 };
+
 
 
 export default TypingBox;

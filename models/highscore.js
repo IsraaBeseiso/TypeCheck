@@ -24,6 +24,6 @@ const highscore = new Schema(
     }
   );
   
-  const Transaction = mongoose.model("Highscore", highscore);
+  const Highscore = mongoose.model("Highscore", highscore);
   
-  module.exports = Transaction;
+  module.exports = Highscore;

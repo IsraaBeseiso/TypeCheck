@@ -1,3 +1,6 @@
+//this component has had it's code moved to TypingBox and can probably be deleted
+
+
 import React, { useState, useEffect } from "react";
 //import txtgen from "txtgen";
 

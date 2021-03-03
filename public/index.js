@@ -63,12 +63,13 @@ clockTimer = setInterval(function () {
 //note the scoring and error check functions haven't been tested
 
 function errorCheck(){
- for (let i = 0; i < userinput.length; i++) {
-     if (userinput[i] != article[i]) {
-         errors++;
-         //if we want to subtract score
-         wpm--;
-     }
+    for (let i = 0; i < userinput.length; i++) {
+        if (userinput[i] != article[i]) {
+            errors++;
+            //if we want to subtract score
+            wpm--;
+        }
+      
      
      }
      
@@ -80,16 +81,6 @@ function errorCheck(){
 
 function scoreResultsNorm(){
 //scores results of a normal test
-
-//let userinput = however we get the user input
-
-
-
-//step 1: convert the user's imput to a string.
-
-//step 2: count the number of words in the imput string (number of spaces +1? there might also be a javascript method)
-
-//step 3: maybe convert both strings into an array of words and do a for loop for the number of words in the imput string, then compare the words? Or it's probably be better to compare the indivdual letters since you can compare var indexes on strings, that way one letter wrong takes a point off instead of a word wrong takes a point off. This method can also be used on choas mode. Step 3 might just be the errorCheck function.
 
 
 userLength = userinput.length;
@@ -113,7 +104,7 @@ for (let i = 0; i < userinput.length; i++) {
 //wpm = Math.round((((characterTyped / 5) / timeElapsed) * 60));
 }
 
-function scoreResultsChaos(){
+function scoreResultsNorm(){
     //scores the results of a chaos test
 
     //let userinput = however we get the user input

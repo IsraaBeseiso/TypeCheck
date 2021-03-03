@@ -40,14 +40,14 @@ function Scoretable() {
         date: Date.now,
       },
       {
-        id: 1,
+        id: 5,
         username: "john",
         score: 90,
         type: true,
         date: Date.now,
       },
       {
-        id: 1,
+        id: 6,
         username: "TomTom",
         score: 100,
         type: true,
@@ -99,7 +99,7 @@ function Scoretable() {
       },
     ],
   };
-
+  console.log(dummyresponse);
   // const [state, setState] = useState({ topnorm: [], topchaos: [] });
 
   // useEffect(() => {

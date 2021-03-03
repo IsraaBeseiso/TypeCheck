@@ -9,7 +9,7 @@ import PersonalTable from "./PersonalTable";
 
 function NormScoretable(props) {
   // const [state, setState] = useState({ topnorm: [], topchaos: [] });
-
+  console.log(props.response);
   // useEffect(() => {
   //   axios.get("/api/highscores").then((response) => {
   //     console.log(response);

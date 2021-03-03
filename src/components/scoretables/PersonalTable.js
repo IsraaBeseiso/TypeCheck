@@ -4,6 +4,7 @@ import React from "react";
 import "./ScoreTable.css";
 
 function OverallTable(props) {
+  console.log(props.personal);
   // Maybe: table content state variable using useState
   // Props will have array of high <i class="fas
   // Loop 5 times, each loop make a row

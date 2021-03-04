@@ -1,6 +1,6 @@
 import React from "react";
-import Scoretable from "../components/scoretables/ScoreTable";
 import ChaosScoreTable from "../components/scoretables/ChaosScoreTable";
+import NormScoreTable from "../components/scoretables/NormScoreTable";
 import Timer from "../components/Timer";
 import { Row, Col } from "reactstrap";
 import TypingBox from "../components/typing/TypingBox";
@@ -11,7 +11,7 @@ function Home() {
       <Row></Row>
       <Row>
         <Col>
-          <Scoretable />
+          <NormScoreTable />
         </Col>
 
         <Col>

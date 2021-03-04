@@ -29,10 +29,9 @@ const Navigation = (props) => {
               >
                 GitHub Repository
               </NavLink>
-              <NavLink href="./RegisterForm">
-             Login/Register
-             
-              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="./RegisterForm">Login/Register</NavLink>
             </NavItem>
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

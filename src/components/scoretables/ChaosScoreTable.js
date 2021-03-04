@@ -111,13 +111,13 @@ function ChaosScoreTable() {
       <Container className="scorecol mr-0 col-md-8 text-center">
         <Row className="justify-content-xs-left">
           <Col>
-            <h1>Chaos Mode!</h1>
+            <h2 className="font-weight-bold">Chaos Mode!</h2>
             <h5>High Scores</h5>
-            <h3>Overall</h3>
+            <h5 className="font-weight-bold font-italic">Overall</h5>
             {/* <OverallTable scores={state.topnorm} /> */}
             <OverallTable overall={dummychaos.dummytopchaos} />
 
-            <h3>Personal</h3>
+            <h5 className="font-weight-bold font-italic">Personal</h5>
             {/* <PersonalTable scores={state.toppersonalnorm} /> */}
             <PersonalTable personal={dummychaos.dummytoppersonalchaos} />
           </Col>

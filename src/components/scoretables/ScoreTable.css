@@ -3,6 +3,7 @@
   src: url("fonts/f25_executive.otf");
   font-weight: normal;
   font-style: normal;
+  font-size: 32pt;
 }
 
 .scoretable {
@@ -13,7 +14,6 @@
 }
 
 table {
-  border-collapse: collapse;
 }
 th {
   border-bottom: 1px solid #03045e;
@@ -24,7 +24,9 @@ td {
 }
 
 .scorecol {
+  width: 25%;
   font-family: F25_Executive;
+  font-size: 16pt;
   background-color: #90e0ef;
   border-style: solid;
   border-width: 2px;

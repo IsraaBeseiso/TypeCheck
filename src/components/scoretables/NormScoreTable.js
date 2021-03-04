@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "reactstrap";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./ScoreTable.css";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
@@ -110,16 +110,16 @@ function NormScoretable() {
 
   return (
     <div>
-      <Container className="scorecol ml-0 col-md-6 text-center">
+      <Container className="scorecol ml-0 col-md-8 text-center">
         <Row className="justify-content-xs-left">
           <Col>
-            <h1>Normal Mode!</h1>
+            <h2 className="font-weight-bold">Normal Mode!</h2>
             <h5>High Scores</h5>
-            <h3>Overall</h3>
+            <h5 className="font-weight-bold font-italic">Overall</h5>
             {/* <OverallTable scores={state.topnorm} /> */}
             <OverallTable overall={dummynorm.dummytopnorm} />
 
-            <h3>Personal</h3>
+            <h5 className="font-weight-bold font-italic">Personal</h5>
             {/* <PersonalTable scores={state.toppersonalnorm} /> */}
             <PersonalTable personal={dummynorm.dummytoppersonalnorm} />
           </Col>

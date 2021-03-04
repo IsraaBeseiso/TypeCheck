@@ -5,19 +5,15 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import LoginForm from "./pages/LoginForm";
 import RegisterForm from "./pages/RegisterForm";
-import Wrapper from "./components/Wrapper";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Wrapper>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/LoginForm" component={LoginForm} />
-        <Route exact path="/RegisterForm" component={RegisterForm} />
-        <Route exact path="/home" component={Home} />
-      </Wrapper>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/LoginForm" component={LoginForm} />
+      <Route exact path="/RegisterForm" component={RegisterForm} />
+      <Route exact path="/home" component={Home} />
     </Router>
   );
 }

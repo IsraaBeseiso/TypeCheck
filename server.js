@@ -1,8 +1,9 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const session = require('express-session');
-
+const app = express();
+const PORT = process.env.PORT || 3005;
+//const routes = require("./routes");
 
 
 
@@ -30,9 +31,8 @@ app.use(session({
 // };
 
 
-//const routes = require("./routes");
-const app = express();
-const PORT = process.env.PORT || 3005;
+
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
 
 // Define middleware here

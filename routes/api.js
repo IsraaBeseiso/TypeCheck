@@ -41,53 +41,84 @@ router.post("/api/highscores", ({body}, res) => {
     Highscore.find().then(highscore => {
 
     //returning the top 10 normal
-    const topnorm = highscore.map(i => {
+    const topnorm = highscore.filter(i=> {
+      //filters for norms
+      return i.type === true;})
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5)
+      .map(i => {
       const {username, score, type} = i
       return {username, score, type}
+
+
     })
 
-    //need a line to get rid of ones where type = false
 
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10)
     
 
     //returning the top 10 chaos
-    const topchaos = highscore.map(i => {
+    const topchaos = highscore.filter(i=> {
+      //filters for chaos
+      return i.type === false;})
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5)
+      .map(i => {
       const {username, score, type} = i
       return {username, score, type}
+
     })
 
     //need a line to get rid of ones where type = true
 
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10)
+
     
 
 
     //returning the top 10 personal norm
-    const toppersonalnorm = highscore.map(i => {
+    const toppersonalnorm = highscore.filter(i=> {
+      return i.type === true;
+      
+
+    //this may filter by username
+    //.filter(i=> {
+      //return i.username === session.username;
+      //})
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5)
+    .map(i => {
       const {username, score, type} = i
       return {username, score, type}
+
+
+
     })
 
-    //need a line where it filters to only username = the logged in username and type = false
-
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10)
+    //need a line where it filters to only username = the logged in username
 
 
     //returning the top 10 personal norm
-    const toppersonalchaos = highscore.map(i => {
+    const toppersonalchaos = highscore.filter(i=> {
+      //filters for chaos
+      return i.type === false;})
+      
+      //this may filter by username
+      //.filter(i=> {
+      //return i.username === session.username;
+      //})
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5)
+      .map(i => {
       const {username, score, type} = i
       return {username, score, type}
+
+
     })
 
-    //need a line where it filters to only username = the logged in username and type = true
+
     //where highscore.username = session.username
 
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10)
+
 
 
 

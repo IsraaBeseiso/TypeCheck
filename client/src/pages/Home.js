@@ -4,7 +4,7 @@ import NormScoreTable from "../components/scoretables/NormScoreTable";
 import Timer from "../components/Timer";
 import { Row, Col } from "reactstrap";
 import TypingBox from "../components/typing/TypingBox";
-import "./Home.css";
+import "./Home.scss";
 
 function Home() {
   return (

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./styles/index.scss";
 import App from "./App";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
   <React.StrictMode>

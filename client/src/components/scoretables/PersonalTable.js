@@ -1,6 +1,6 @@
 import React from "react";
 // import { Table } from "reactstrap";
-import "client/src/styles/tables.scss";
+import styles from "../../styles/tables.scss";
 
 function OverallTable(props) {
   console.log(props.personal);

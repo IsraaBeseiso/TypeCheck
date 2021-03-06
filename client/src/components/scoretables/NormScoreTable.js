@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import "client/src/styles/tables.scss";
+import styles from "../../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 

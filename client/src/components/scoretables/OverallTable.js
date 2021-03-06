@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Container, Table } from "reactstrap";
-import "client/src/styles/tables.scss";
+import styles from "../../styles/tables.scss";
 
 function OverallTable(props) {
   console.log(props.overall);

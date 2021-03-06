@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "client/src/styles/typingBox.scss";
+import styles from "../../styles/tables.scss";
 //import Timer from "./Timer"
 const txtgen = require("txtgen");
 

@@ -2,7 +2,7 @@ import React, { useEffect, setState } from "react";
 import axios from "axios";
 import { Row, Col, Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import "client/src/styles/tables.scss";
+import styles from "../../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 
@@ -108,7 +108,7 @@ function ChaosScoreTable() {
   // });
   return (
     <div>
-      <Container className="scorecol mr-0 col-md-8 text-center">
+      <Container className="scorecol" styles="mr-0 col-md-8 text-center">
         <Row className="justify-content-xs-left">
           <Col>
             <h2 className="font-weight-bold">Chaos Mode!</h2>

@@ -7,7 +7,7 @@ function OverallTable(props) {
   console.log(props.overall);
   return (
     <div>
-      <table className="table">
+      <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">Rank</th>

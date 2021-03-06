@@ -78,8 +78,8 @@ let scoreSeed = [
     
   ];
   
-  db.Score.deleteMany({})
-    .then(() => db.Score.collection.insertMany(scoreSeed))
+  db.Highscore.deleteMany({})
+    .then(() => db.Highscore.collection.insertMany(scoreSeed))
     .then(data => {
       console.log(data.result.n + " records inserted!");
       process.exit(0);

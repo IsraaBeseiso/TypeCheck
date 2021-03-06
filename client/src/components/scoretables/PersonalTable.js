@@ -12,7 +12,7 @@ function OverallTable(props) {
   // let tableContents =
   return (
     <>
-      <table className="table">
+      <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">Rank</th>

@@ -1,70 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, setState } from "react";
+import axios from "axios";
 import { Row, Col, Container } from "reactstrap";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./ScoreTable.css";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 
-// import axios from "axios";
-
-function NormScoretable() {
-  const dummynorm = {
-    dummytopnorm: [
+function ChaosScoreTable() {
+  const dummychaos = {
+    dummytopchaos: [
       {
         id: 1,
         username: "TomTom",
-        score: 85,
+        score: 15,
         type: true,
         date: Date.now,
       },
       {
         id: 2,
         username: "Sally",
-        score: 130,
+        score: 34,
         type: true,
         date: Date.now,
       },
       {
         id: 3,
         username: "typeking",
-        score: 60,
+        score: 8,
         type: true,
         date: Date.now,
       },
       {
         id: 4,
         username: "newbytyper",
-        score: 20,
+        score: 42,
         type: true,
         date: Date.now,
       },
       {
         id: 5,
         username: "john",
-        score: 90,
+        score: 51,
         type: true,
         date: Date.now,
       },
       {
         id: 6,
         username: "TomTom",
-        score: 100,
+        score: 27,
         type: true,
         date: Date.now,
       },
     ],
-    dummytoppersonalnorm: [
+    dummytoppersonalchaos: [
       {
         id: 1,
         username: "TomTom",
-        score: 38,
+        score: 7,
         type: true,
         date: "11/17/20",
       },
       {
         id: 1,
         username: "TomTom",
-        score: 47,
+        score: 16,
         type: true,
         date: "11/18/20",
       },
@@ -78,55 +77,53 @@ function NormScoretable() {
       {
         id: 1,
         username: "TomTom",
-        score: 73,
+        score: 27,
         type: true,
         date: "2/14/21",
       },
       {
         id: 1,
         username: "TomTom",
-        score: 85,
+        score: 13,
         type: true,
         date: Date.now,
       },
       {
         id: 1,
         username: "TomTom",
-        score: 100,
+        score: 21,
         type: true,
         date: Date.now,
       },
     ],
   };
+  console.log(dummychaos);
 
-  // const [state, setState] = useState({ topnorm: [], topchaos: [] });
-  console.log(dummynorm);
   // useEffect(() => {
   //   axios.get("/api/highscores").then((response) => {
   //     console.log(response);
   //     //check for what setState should be called on--might be response.data, etc
   //     setState(response);
   //   });
-
+  // });
   return (
     <div>
-      <Container className="scorecol ml-0 col-md-6 text-center">
+      <Container className="scorecol mr-0 col-md-8 text-center">
         <Row className="justify-content-xs-left">
           <Col>
-            <h1>Normal Mode!</h1>
+            <h2 className="font-weight-bold">Chaos Mode!</h2>
             <h5>High Scores</h5>
-            <h3>Overall</h3>
+            <h5 className="font-weight-bold font-italic">Overall</h5>
             {/* <OverallTable scores={state.topnorm} /> */}
-            <OverallTable overall={dummynorm.dummytopnorm} />
+            <OverallTable overall={dummychaos.dummytopchaos} />
 
-            <h3>Personal</h3>
+            <h5 className="font-weight-bold font-italic">Personal</h5>
             {/* <PersonalTable scores={state.toppersonalnorm} /> */}
-            <PersonalTable personal={dummynorm.dummytoppersonalnorm} />
+            <PersonalTable personal={dummychaos.dummytoppersonalchaos} />
           </Col>
         </Row>
       </Container>
     </div>
   );
 }
-
-export default NormScoretable;
+export default ChaosScoreTable;

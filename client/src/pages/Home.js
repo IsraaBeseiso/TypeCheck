@@ -9,17 +9,12 @@ import "../styles/home.scss";
 function Home() {
   return (
     <div>
-      <Row></Row>
       <Row>
         <Col>
           <NormScoreTable />
         </Col>
 
         <Col>
-          {/* <Row>
-            <Timer />
-          </Row> */}
-
           <Row>
             <TypingBox />
           </Row>

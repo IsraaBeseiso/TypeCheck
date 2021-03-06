@@ -281,11 +281,11 @@ const TypingBox = () => {
 
   return (
     <div>
-      <div className="app col-md-2 ml-5 border text-center">
+      <div className="timer col-md-12">
         {/* <div className="time">{timer}s</div> */}
-        <div className="time-string-container">
-          <p id="timestring">{timer}</p>
-        </div>
+        {/* <div className="time-string-container"> */}
+        <p id="timestring">{timer}</p>
+        {/* </div> */}
 
         <div className="row justify-content-center">
           <button
@@ -307,14 +307,14 @@ const TypingBox = () => {
         </div>
       </div>
 
-      <div className="type-checker-container">
-        <h1>Typing Test</h1>
-        <div className="test-string-container">
+      <div className="type-checker-container col-md-12">
+        <h1 classname="mode">Typing Test</h1>
+        <div className="test-string-container col-md-12">
           <p id="test-string">{testString}</p>
         </div>
         <p id="userwpm">{userwpm}</p>
         <textarea
-          className="text-area"
+          className="text-area col-md-12"
           id="userinput"
           onChange={handleOnStringMatch}
           //just to make the field editable for now

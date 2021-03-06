@@ -1,12 +1,13 @@
+@import "colorsfonts.scss";
+
 .type-checker-container {
   max-width: 400px;
   margin: 64px auto;
   padding: 0 16px;
-
-  @media min-width(768px) {
-    padding: 0;
-  }
 }
+// @media min-width(768px) {
+//   padding: 0;
+// }
 
 .test-string-container {
   width: 100%;

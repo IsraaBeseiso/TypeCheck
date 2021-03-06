@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/app.scss";
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -12,13 +12,13 @@ function App() {
   return (
     <Router>
       <>
-      <Navbar />
-      <Wrapper>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/LoginForm" component={LoginForm} />
-        <Route exact path="/RegisterForm" component={RegisterForm} />
-        <Route exact path="/home" component={Home} />
-      </Wrapper>
+        <Navbar />
+        <Wrapper>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/LoginForm" component={LoginForm} />
+          <Route exact path="/RegisterForm" component={RegisterForm} />
+          <Route exact path="/home" component={Home} />
+        </Wrapper>
       </>
     </Router>
   );

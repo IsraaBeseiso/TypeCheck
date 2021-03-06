@@ -1,53 +1,45 @@
 const express = require("express");
+const helmet = require("helmet");
+const bodyParser = require("body-parser");
+const db = require("./config");
+const logger = require("morgan");
+const cors = require("cors");
+const path = require("path");
+//const expressSession = require("express-session");
+//const MongoStore = require("connect-mongo")(expressSession);
 const mongoose = require("mongoose");
-const session = require('express-session');
+mongoose.connect(process.env.MONGODB_URI);
+
+
+require("dotenv").config();
+const PORT = process.env.PORT || 5000;
+// MW
 const app = express();
-const PORT = process.env.PORT || 3005;
-//const routes = require("./routes");
-
-
-
-const MongoStore = require('connect-mongo').default;
-
-app.use(session({
-  secret: 'foo',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: MongoStore.create({mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"})
-}));
-
-
-//maybe a variation of this?
-
-// const sess = {
-//    secret: 'Secret Secret',
-//    cookie: {},
-//    resave: false,
-//    saveUninitialized: true,
-//    store: new MongoStore({
-//       db: sequelize
-//    })
-// };
-
-
-
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
-
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(logger("dev"));
+app.use(cors());
+// DB => API
+// db().then((connection) => {
+//   app.use(
+//     expressSession({
+//       secret: process.env.SECRET,
+//       resave: true,
+//       saveUninitialized: true,
+//       cookie: { secure: true },
+//       //store: new MongoStore({ mongooseConnection: connection }),
+//     })
+//   );
+// });
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(require("./routes/api"));
-
-
-
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.use (require ("./routes/api"))
+// const publicPath = path.join(__dirname, './client/public');
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+app.listen(PORT, () => {
+  console.log(`PORT ${PORT}`);
 });

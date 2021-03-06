@@ -141,23 +141,23 @@ function Homepage() {
   //   }
 
   //   testType = false;
-  //   renderTest();
-  // // }
-  // function testTimer() {
-  //   timer = 60;
-  //   clockTimer = setInterval(function () {
-  //     //if we want to use jquery instead of react to change the html
-  //     //timerLeft.innerHTML = "TimeLeft: " + timer;
-  //     timer--;
-  //     document.getElementById("timestring").innerHTML = timer;
-  //     console.log(timer);
-  //     if (timer === 1) {
-  //       clearInterval(timer);
-  //       timer = 0;
-  //     }
-  //   }, 1000);
-  //   displayScore();
+  //renderTest();
   // }
+  function testTimer() {
+    timer = 60;
+    clockTimer = setInterval(function () {
+      //if we want to use jquery instead of react to change the html
+      //timerLeft.innerHTML = "TimeLeft: " + timer;
+      timer--;
+      document.getElementById("timestring").innerHTML = timer;
+      console.log(timer);
+      if (timer === 1) {
+        clearInterval(timer);
+        timer = 0;
+      }
+    }, 1000);
+    displayScore();
+  }
 
   function displayScore() {
     if (testType) {
@@ -260,6 +260,10 @@ function Homepage() {
     testString = chaosString;
   }
 
+  function handleClickChaos() {
+    timer();
+    chaosTest();
+  }
 
   // function handleChange(event) {
   //   event.preventDefault();
@@ -282,9 +286,12 @@ function Homepage() {
             <TimerDisplay
               seconds={seconds}
               normTest={normTest}
-              chaosTest={chaosTest}
+              handleClickChaos={handleClickChaos}
             // handleChange={handleChange}
+
             />
+          </Row>
+          <Row>
             <TypingBox
               renderTest={renderTest}
               displayScore={displayScore}

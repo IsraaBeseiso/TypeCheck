@@ -62,13 +62,14 @@ function typingBox(props) {
         </div>
 
 
-        <div className="type-checker-container col-md-12">
+        <div className="type-checker-container fluid" >
           <h1 className="mode">Typing Test</h1>
           <label>Type Here!</label>
-          <input type="textarea"
+          <input
+            type="textarea"
             name="userinput"
             style={{ width: "100%", height: "300px" }}
-            onChange={props.handleChange}
+            onChange={props.handleClickChaos}
           />
 
           {/* <div className="test-string-container col-md-12"> */}

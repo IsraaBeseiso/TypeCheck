@@ -108,7 +108,8 @@ function ChaosScoreTable() {
   // });
   return (
     <div>
-      <Container className="scorecol col-md-8 mr-0">
+      <Container className="scorecol fluid col-md-8
+       mr-0">
         <Row className="row">
           <Col>
             <h2 className="mode">Chaos Mode!</h2>

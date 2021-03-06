@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGODB_URI);
 
 
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 // MW
 const app = express();
 app.use(helmet());

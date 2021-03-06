@@ -15,9 +15,9 @@ function OverallTable(props) {
           </tr>
         </thead>
         <tbody>
-          {props.overall.map((scores) => (
+          {props.overall.map((scores, index) => (
             <tr key={scores.id}>
-              <td></td>
+              <td>{index + 1}</td>
               <td>{scores.username}</td>
               <td>{scores.score}</td>
             </tr>

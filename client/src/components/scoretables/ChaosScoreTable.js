@@ -2,7 +2,7 @@ import React, { useEffect, setState } from "react";
 import axios from "axios";
 import { Row, Col, Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import "./ScoreTable.css";
+import styles from "../../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 
@@ -108,16 +108,16 @@ function ChaosScoreTable() {
   // });
   return (
     <div>
-      <Container className="scorecol mr-0 col-md-8 text-center">
-        <Row className="justify-content-xs-left">
+      <Container className="scorecol col-md-8 mr-0">
+        <Row className="row">
           <Col>
-            <h2 className="font-weight-bold">Chaos Mode!</h2>
-            <h5>High Scores</h5>
-            <h5 className="font-weight-bold font-italic">Overall</h5>
+            <h2 class="mode">Chaos Mode!</h2>
+            <h5 class="highscores">High Scores</h5>
+            <h6 class="tabletype">Overall</h6>
             {/* <OverallTable scores={state.topnorm} /> */}
             <OverallTable overall={dummychaos.dummytopchaos} />
 
-            <h5 className="font-weight-bold font-italic">Personal</h5>
+            <h6 className="tabletype">Personal</h6>
             {/* <PersonalTable scores={state.toppersonalnorm} /> */}
             <PersonalTable personal={dummychaos.dummytoppersonalchaos} />
           </Col>

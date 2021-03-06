@@ -1,7 +1,6 @@
 import React from "react";
 // import { Table } from "reactstrap";
-// import "bootstrap/dist/css/bootstrap.css";
-import "./ScoreTable.css";
+import styles from "../../styles/tables.scss";
 
 function OverallTable(props) {
   console.log(props.personal);

@@ -289,4 +289,9 @@ function scoreResultsChaos(){
   );
 };
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> main
 export default TypingBox;

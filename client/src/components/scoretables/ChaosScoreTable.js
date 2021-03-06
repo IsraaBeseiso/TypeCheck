@@ -54,42 +54,42 @@ function ChaosScoreTable() {
     ],
     dummytoppersonalchaos: [
       {
-        id: 1,
+        id: 7,
         username: "TomTom",
         score: 7,
         type: true,
         date: "11/17/20",
       },
       {
-        id: 1,
+        id: 8,
         username: "TomTom",
         score: 16,
         type: true,
         date: "11/18/20",
       },
       {
-        id: 1,
+        id: 9,
         username: "TomTom",
         score: 29,
         type: true,
         date: "1/23/21",
       },
       {
-        id: 1,
+        id: 10,
         username: "TomTom",
         score: 27,
         type: true,
         date: "2/14/21",
       },
       {
-        id: 1,
+        id: 11,
         username: "TomTom",
         score: 13,
         type: true,
         date: Date.now,
       },
       {
-        id: 1,
+        id: 12,
         username: "TomTom",
         score: 21,
         type: true,
@@ -111,9 +111,9 @@ function ChaosScoreTable() {
       <Container className="scorecol col-md-8 mr-0">
         <Row className="row">
           <Col>
-            <h2 class="mode">Chaos Mode!</h2>
-            <h5 class="highscores">High Scores</h5>
-            <h6 class="tabletype">Overall</h6>
+            <h2 className="mode">Chaos Mode!</h2>
+            <h5 className="highscores">High Scores</h5>
+            <h6 className="tabletype">Overall</h6>
             {/* <OverallTable scores={state.topnorm} /> */}
             <OverallTable overall={dummychaos.dummytopchaos} />
 

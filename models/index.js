@@ -1,3 +1,4 @@
-module.exports = {  
-    Highscore:require('./highscore')
+module.exports = {
+  Highscore: require("./highscore"),
+  userModel: require("./userModel"),
 };

@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import styles from "../../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
-
 // import axios from "axios";
 
 function NormScoretable() {
@@ -55,42 +54,42 @@ function NormScoretable() {
     ],
     dummytoppersonalnorm: [
       {
-        id: 1,
+        id: 7,
         username: "TomTom",
         score: 38,
         type: true,
         date: "11/17/20",
       },
       {
-        id: 1,
+        id: 8,
         username: "TomTom",
         score: 47,
         type: true,
         date: "11/18/20",
       },
       {
-        id: 1,
+        id: 9,
         username: "TomTom",
         score: 29,
         type: true,
         date: "1/23/21",
       },
       {
-        id: 1,
+        id: 10,
         username: "TomTom",
         score: 73,
         type: true,
         date: "2/14/21",
       },
       {
-        id: 1,
+        id: 11,
         username: "TomTom",
         score: 85,
         type: true,
         date: Date.now,
       },
       {
-        id: 1,
+        id: 12,
         username: "TomTom",
         score: 100,
         type: true,
@@ -99,8 +98,7 @@ function NormScoretable() {
     ],
   };
 
-  // const [state, setState] = useState({ topnorm: [], topchaos: [] });
-  console.log(dummynorm);
+  // const [state, setState] = useState({ topnorm: [], toppersonalnorm: [] });
   // useEffect(() => {
   //   axios.get("/api/highscores").then((response) => {
   //     console.log(response);
@@ -109,23 +107,25 @@ function NormScoretable() {
   //   });
 
   return (
-    <div>
-      <Container className="scorecol col-md-8 ml-0">
-        <Row className="row">
-          <Col>
-            <h2 class="mode">Normal Mode!</h2>
-            <h5 class="highscores">High Scores</h5>
-            <h6 class="tabletype">Overall</h6>
-            {/* <OverallTable scores={state.topnorm} /> */}
-            <OverallTable overall={dummynorm.dummytopnorm} />
+    <>
+      <div>
+        <Container className="scorecol col-md-8 ml-0">
+          <Row className="row">
+            <Col>
+              <h2 className="mode">Normal Mode!</h2>
+              <h5 className="highscores">High Scores</h5>
+              <h6 className="tabletype">Overall</h6>
+              {/* <OverallTable overall={state.topnorm} /> */}
+              <OverallTable overall={dummynorm.dummytopnorm} />
 
-            <h6 className="tabletype">Personal</h6>
-            {/* <PersonalTable scores={state.toppersonalnorm} /> */}
-            <PersonalTable personal={dummynorm.dummytoppersonalnorm} />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+              <h6 className="tabletype">Personal</h6>
+              {/* <PersonalTable personal={state.toppersonalnorm} /> */}
+              <PersonalTable personal={dummynorm.dummytoppersonalnorm} />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 }
 

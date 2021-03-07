@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import styles from "../../styles/tables.scss";
+// import "../styles/app.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
 import axios from "axios";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/tables.scss";
+// import "../styles/app.scss";
 //import Timer from "./Timer"
 const txtgen = require("txtgen");
 
@@ -282,26 +282,20 @@ const TypingBox = () => {
   return (
     <div>
       <div className="timer col-md-12">
-        {/* <div className="time">{timer}s</div> */}
-        {/* <div className="time-string-container"> */}
         <p id="timestring">{timer}</p>
-        {/* </div> */}
 
         <div className="row justify-content-center">
           <button
-            className={` norm-button button-primary text-center button-primary-${
-              isActive ? "active" : "inactive"
-              }`}
-            onClick={generateNormTest}
-          >
-            {isActive ? "" : ""}
+            className="testType-button"
+            id="norm-button"
+            onClick={generateNormTest}>
             Normal Mode
           </button>
+
           <button
-            // className="chaos-button" onClick={this.handleClick}>
-            className="chaos-button"
-            onClick={generateChaosTest}
-          >
+            className="testType-button"
+            id="chaos-button"
+            onClick={generateChaosTest}>
             Chaos Mode
           </button>
         </div>

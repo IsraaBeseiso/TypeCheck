@@ -21,9 +21,9 @@ function NormScoretable() {
       <Container className="scorecol col-md-8 ml-0">
         <Row className="row">
           <Col>
-            <h2 class="mode">Normal Mode!</h2>
-            <h5 class="highscores">High Scores</h5>
-            <h6 class="tabletype">Overall</h6>
+            <h2 className="mode">Normal Mode!</h2>
+            <h5 className="highscores">High Scores</h5>
+            <h6 className="tabletype">Overall</h6>
             <OverallTable overall={state.topnorm} />
             {/* <OverallTable overall={dummynorm.dummytopnorm} /> */}
             <h6 className="tabletype">Personal</h6>

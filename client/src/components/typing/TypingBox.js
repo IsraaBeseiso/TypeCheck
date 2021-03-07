@@ -306,7 +306,7 @@ const TypingBox = () => {
       </div>
 
       <div className="type-checker-container col-md-12">
-        <h1 classname="mode">Typing Test</h1>
+        <h1 className="mode">Typing Test</h1>
         <div className="test-string-container col-md-12">
           <p id="test-string">{testString}</p>
         </div>

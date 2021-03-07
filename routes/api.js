@@ -38,7 +38,7 @@ router.post("/api/highscores", ({body}, res) => {
 
   //get top 10
   router.get("/api/highscores", (req, res) => {
-    Highscore.find().then(highscore => {
+    Highscore.find({}).then(highscore => {
 
     //returning the top 10 normal
     const topnorm = highscore.filter(i=> {
@@ -47,8 +47,8 @@ router.post("/api/highscores", ({body}, res) => {
       .sort((a, b) => b.score - a.score)
       .slice(0, 5)
       .map(i => {
-      const {username, score, type} = i
-      return {username, score, type}
+      const {username, score, type, date}  = i
+      return {username, score, type, date}
 
 
     })
@@ -87,8 +87,8 @@ router.post("/api/highscores", ({body}, res) => {
     .sort((a, b) => b.score - a.score)
     .slice(0, 5)
     .map(i => {
-      const {username, score, type} = i
-      return {username, score, type}
+      const {username, score, type, date} = i
+      return {username, score, type, date}
 
 
 
@@ -109,8 +109,8 @@ router.post("/api/highscores", ({body}, res) => {
       .sort((a, b) => b.score - a.score)
       .slice(0, 5)
       .map(i => {
-      const {username, score, type} = i
-      return {username, score, type}
+      const {username, score, type, date} = i
+      return {username, score, type, date}
 
 
     })
@@ -120,9 +120,11 @@ router.post("/api/highscores", ({body}, res) => {
 
 
 
+console.log ("topnorm" + topnorm);
+console.log ("topchaos" + topchaos);
+console.log ("topperonalnorm" + toppersonalnorm);
 
-
-        return res.json(topnorm, topchaos, toppersonalnorm, toppersonalchaos);
+        return res.json({topnorm, topchaos, toppersonalnorm, toppersonalchaos});
 
       })
     // }

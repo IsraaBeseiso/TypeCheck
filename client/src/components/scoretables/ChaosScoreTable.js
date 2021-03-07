@@ -5,16 +5,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import styles from "../../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
-
 function ChaosScoreTable() {
-  const[state, setState] = useState({topchaos:[], toppersonalchaos:[]})
-
-
+  const [state, setState] = useState({ topchaos: [], toppersonalchaos: [] })
   useEffect(() => {
     axios.get("/api/highscores").then((response) => {
       console.log(response);
       //check for what setState should be called on--might be response.data, etc
-      setState({...state, ...response.data});
+      setState({ ...state, ...response.data });
     });
   }, []);
   console.log("chaos state ", state.topchaos)
@@ -28,7 +25,6 @@ function ChaosScoreTable() {
             <h6 class="tabletype">Overall</h6>
             <OverallTable overall={state.topchaos} />
             {/* <OverallTable overall={dummychaos.dummytopchaos} /> */}
-
             <h6 className="tabletype">Personal</h6>
             <PersonalTable personal={state.toppersonalchaos} />
             {/* <PersonalTable personal={dummychaos.dummytoppersonalchaos} /> */}

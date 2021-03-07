@@ -4,24 +4,17 @@ import "bootstrap/dist/css/bootstrap.css";
 import styles from "../../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
-
 import axios from "axios";
-
-
-
 function NormScoretable() {
-  const[state, setState] = useState({topnorm:[], toppersonalnorm:[]})
-
-
+  const [state, setState] = useState({ topnorm: [], toppersonalnorm: [] })
   // const [state, setState] = useState({ topnorm: [], topchaos: [] });
-
   useEffect(() => {
     axios.get("/api/highscores").then((response) => {
       console.log("get highscores" + response);
       //check for what setState should be called on--might be response.data, etc
-      setState({...state, ...response.data});
-     }) 
-    },[]);
+      setState({ ...state, ...response.data });
+    })
+  }, []);
   console.log("state normscore", state.topnorm)
   return (
     <div>
@@ -33,7 +26,6 @@ function NormScoretable() {
             <h6 class="tabletype">Overall</h6>
             <OverallTable overall={state.topnorm} />
             {/* <OverallTable overall={dummynorm.dummytopnorm} /> */}
-
             <h6 className="tabletype">Personal</h6>
             <PersonalTable personal={state.toppersonalnorm} />
             {/* <PersonalTable personal={dummynorm.dummytoppersonalnorm} /> */}
@@ -43,5 +35,4 @@ function NormScoretable() {
     </div>
   );
 }
-
 export default NormScoretable;

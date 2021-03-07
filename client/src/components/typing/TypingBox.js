@@ -19,8 +19,8 @@ let chaosString = "";
 let userwpm = "";
 
 const TypingBox = () => {
-  const [currentTestStringIndex, setCurrentTestStringIndex] = React.useState(0);
-  const [inputValue, setInputValue] = React.useState("");
+  const [currentTestStringIndex, setCurrentTestStringIndex] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
   var charArray = [
     "A",
@@ -103,11 +103,11 @@ const TypingBox = () => {
   var testType;
 
   const [seconds, setSeconds] = useState(60);
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
   function generateNormTest() {
     userwpm = "";
-    setIsActive(!isActive);
+    // setIsActive(!isActive);
     testType = true;
     renderTest();
   }
@@ -115,7 +115,7 @@ const TypingBox = () => {
   function generateChaosTest() {
     //generate random string of 1000 characters cap/lowercase/symbols
     userwpm = "";
-    setIsActive(!isActive);
+    // setIsActive(!isActive);
 
     for (let i = 1; i < 1000; i++) {
       let newLetter = charArray[Math.floor(Math.random() * 75)];
@@ -289,12 +289,10 @@ const TypingBox = () => {
 
         <div className="row justify-content-center">
           <button
-            className={` norm-button button-primary text-center button-primary-${
-              isActive ? "active" : "inactive"
-            }`}
+            className="norm-button button-primary text-center"
             onClick={generateNormTest}
           >
-            {isActive ? "" : ""}
+            {/* {isActive ? "" : ""} */}
             Normal Mode
           </button>
           <button

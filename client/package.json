@@ -2,9 +2,10 @@
   "name": "typetest",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:3002/",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^5.0.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "react": "^16.13.1",

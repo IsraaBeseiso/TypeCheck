@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 // import "../styles/app.scss";
 //import Timer from "./Timer"
 const txtgen = require("txtgen");
@@ -107,11 +108,22 @@ const TypingBox = () => {
   const [seconds, setSeconds] = useState(60);
   const [isActive, setIsActive] = useState(false);
 
+  function reset() {
+
+    window.location.reload();
+  }
+
   function generateNormTest() {
     document.getElementById("norm-button").classList.add("active-button");
     document.getElementById("chaos-button").classList.add("active-button");
     document.getElementById("norm-button").classList.remove("testType-button");
     document.getElementById("chaos-button").classList.remove("testType-button");
+
+
+
+
+
+
 
     userwpm = "";
     setIsActive(!isActive);
@@ -124,6 +136,8 @@ const TypingBox = () => {
     document.getElementById("chaos-button").classList.add("active-button");
     document.getElementById("norm-button").classList.remove("testType-button");
     document.getElementById("chaos-button").classList.remove("testType-button");
+
+
 
     //generate random string of 1000 characters cap/lowercase/symbols
     userwpm = "";
@@ -194,6 +208,7 @@ const TypingBox = () => {
       console.log(timer);
       if (timer === 0) {
         clearInterval(clockTimer);
+        userinput.current.disabled = true
         timer = 0;
         if (testType) {
           scoreResultsNorm();
@@ -314,20 +329,26 @@ const TypingBox = () => {
       </div>
 
       <div className="type-checker-container col-md-12">
-        <h1 classname="mode">Typing Test</h1>
+        <h1 className="mode">Typing Test</h1>
         <div className="test-string-container bg-white col-md-12">
           <p id="test-string">{testString}</p>
         </div>
         <p id="userwpm">{userwpm}</p>
-        <textarea
-          className="text-area col-md-12 read-only"
-          style={{ width: "100%", height: "200px" }}
-          id="userinput"
-          onChange={handleOnStringMatch}
-          //just to make the field editable for now
 
-          value={inputValue}
-        />
+        <form>
+          <lable>
+            Start typing here
+
+        <textarea
+              className="text-area col-md-12"
+              style={{ width: "100%", height: "200px" }}
+              id="userinput"
+              onChange={handleOnStringMatch}
+              value={inputValue}
+              disabled="disabled"
+            />
+          </lable>
+        </form>
       </div>
     </div>
   );

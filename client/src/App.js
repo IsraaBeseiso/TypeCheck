@@ -14,7 +14,6 @@ function App() {
   return (
     <Router>
       <>
-        <Navbar />
         <Wrapper>
           <Route exact path="/" component={Home} />
           <Route exact path="/LoginForm" component={LoginForm} />

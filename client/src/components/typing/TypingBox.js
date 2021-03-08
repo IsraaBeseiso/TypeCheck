@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from "react";
 // import "../styles/app.scss";
 //import Timer from "./Timer"
 const txtgen = require("txtgen");
+
 
 const testStrings = "";
 let testString = "";
@@ -106,6 +108,11 @@ const TypingBox = () => {
   const [isActive, setIsActive] = useState(false);
 
   function generateNormTest() {
+    document.getElementById("norm-button").classList.add("active-button");
+    document.getElementById("chaos-button").classList.add("active-button");
+    document.getElementById("norm-button").classList.remove("testType-button");
+    document.getElementById("chaos-button").classList.remove("testType-button");
+
     userwpm = "";
     setIsActive(!isActive);
     testType = true;
@@ -113,6 +120,11 @@ const TypingBox = () => {
   }
 
   function generateChaosTest() {
+    document.getElementById("norm-button").classList.add("active-button");
+    document.getElementById("chaos-button").classList.add("active-button");
+    document.getElementById("norm-button").classList.remove("testType-button");
+    document.getElementById("chaos-button").classList.remove("testType-button");
+
     //generate random string of 1000 characters cap/lowercase/symbols
     userwpm = "";
     setIsActive(!isActive);

@@ -9,6 +9,7 @@ import Wrapper from "./components/Wrapper";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/app.scss";
 
+
 function App() {
   return (
     <Router>

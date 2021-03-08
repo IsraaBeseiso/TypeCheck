@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const Highscore = require("../models/highscore.js");
 const User = require("../models/userModel.js");
-const Cryptr = require("cryptr");
-const cryptr = new Cryptr("myTotalySecretKey");
+// const Cryptr = require("cryptr");
+// const cryptr = new Cryptr("myTotalySecretKey");
+const withAuth = require('../utils/auth');
 
 ///api/highscore?
 
@@ -32,10 +33,10 @@ router.post("/api/highscores/bulk", ({ body }, res) => {
     });
 });
 
-//get top 10
+//get top 5
 router.get("/api/highscores", (req, res) => {
   Highscore.find({}).then((highscore) => {
-    //returning the top 10 normal
+    //returning the top 5 normal
     const topnorm = highscore
       .filter((i) => {
         //filters for norms
@@ -48,7 +49,7 @@ router.get("/api/highscores", (req, res) => {
         return { username, score, type, date };
       });
 
-    //returning the top 10 chaos
+    //returning the top 5 chaos
     const topchaos = highscore
       .filter((i) => {
         //filters for chaos
@@ -63,7 +64,7 @@ router.get("/api/highscores", (req, res) => {
 
     //need a line to get rid of ones where type = true
 
-    //returning the top 10 personal norm
+    //returning the top 5 personal norm
     const toppersonalnorm = highscore
       .filter((i) => {
         return i.type === true;
@@ -82,7 +83,7 @@ router.get("/api/highscores", (req, res) => {
 
     //need a line where it filters to only username = the logged in username
 
-    //returning the top 10 personal norm
+    //returning the top 5 personal norm
     const toppersonalchaos = highscore
       .filter((i) => {
         //filters for chaos
@@ -135,10 +136,10 @@ router.post("/api/newUser", ({ body }, res) => {
       } else {
       }
     });
-    var password = cryptr.encrypt(body.password);
+    //creates the user and the model encrypts the password
     User.create({
       username: body.username,
-      password: password,
+      password: body.password,
       email: body.email,
     })
       .then((dbHighscore) => {
@@ -162,23 +163,57 @@ router.get("/api/getUser", (req, res) => {
 });
 
 router.post("/api/login", (req, res) => {
-  var password =  cryptr.decrypt(req.body.password);
+  // var password =  cryptr.decrypt(req.body.password);
   User.find({ email: req.body.email }).then(async(data) => {
-    if (data.length > 0) {
-      //var password = await cryptr.decrypt(req.body.password);
-      return res.json(password)
-
-      // console.log(password);
-      // console.log(req.body.password);
-      // if (password === req.body.password) {
-      //   return res.json(data);
-      // } else {
-      //   return res.status(400).json({error: "Password is incorrect" });
-      // }
-    } else {
-      return res.status(400).json({error: "Email doesn't exist" });
+    if (!userData) {
+      res.status(400).json({ message: 'No user with that email address!' });
+      return;
     }
+
+    validPassword =true;
+
+   // const validPassword = userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.username = userData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
+
+    // if (data.length > 0) {
+    //   //var password = await cryptr.decrypt(req.body.password);
+    //   return res.json(password)
+
+    //   // console.log(password);
+    //   // console.log(req.body.password);
+    //   // if (password === req.body.password) {
+    //   //   return res.json(data);
+    //   // } else {
+    //   //   return res.status(400).json({error: "Password is incorrect" });
+    //   // }
+    // } else {
+    //   return res.status(400).json({error: "Email doesn't exist" });
+    // }
   });
 });
+
+router.post('/logout', withAuth, (req, res) => {
+  if (req.session.loggedIn) {
+     req.session.destroy(() => {
+       res.status(204).end();
+     });
+   }
+   else {
+     res.status(404).end();
+   }
+});
+
 
 module.exports = router;

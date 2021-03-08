@@ -1,6 +1,7 @@
 import React from "react";
-import "./Authentication.css";
+import "./Authentication.scss";
 import $ from "jquery";
+
 
 function LoginForm(props) {
   $(".message a").click(function () {
@@ -19,8 +20,8 @@ function LoginForm(props) {
       </div>
       <div class="form">
         <form class="login-form">
-          <input type="text" placeholder="username" id = "username-login"/>
-          <input type="password" placeholder="password" id = "password-login" />
+          <input type="text" placeholder="username" id="username-login" />
+          <input type="password" placeholder="password" id="password-login" />
           <button>login</button>
           <p class="message">
             Not registered? <a href="RegisterForm">Create an account</a>

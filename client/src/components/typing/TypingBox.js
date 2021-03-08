@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/tables.scss";
+// import "../styles/app.scss";
 //import Timer from "./Timer"
 const txtgen = require("txtgen");
+
 
 const testStrings = "";
 let testString = "";
@@ -19,8 +21,8 @@ let chaosString = "";
 let userwpm = "";
 
 const TypingBox = () => {
-  const [currentTestStringIndex, setCurrentTestStringIndex] = useState(0);
-  const [inputValue, setInputValue] = useState("");
+  const [currentTestStringIndex, setCurrentTestStringIndex] = React.useState(0);
+  const [inputValue, setInputValue] = React.useState("");
 
   var charArray = [
     "A",
@@ -103,19 +105,29 @@ const TypingBox = () => {
   var testType;
 
   const [seconds, setSeconds] = useState(60);
-  // const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   function generateNormTest() {
+    document.getElementById("norm-button").classList.add("active-button");
+    document.getElementById("chaos-button").classList.add("active-button");
+    document.getElementById("norm-button").classList.remove("testType-button");
+    document.getElementById("chaos-button").classList.remove("testType-button");
+
     userwpm = "";
-    // setIsActive(!isActive);
+    setIsActive(!isActive);
     testType = true;
     renderTest();
   }
 
   function generateChaosTest() {
+    document.getElementById("norm-button").classList.add("active-button");
+    document.getElementById("chaos-button").classList.add("active-button");
+    document.getElementById("norm-button").classList.remove("testType-button");
+    document.getElementById("chaos-button").classList.remove("testType-button");
+
     //generate random string of 1000 characters cap/lowercase/symbols
     userwpm = "";
-    // setIsActive(!isActive);
+    setIsActive(!isActive);
 
     for (let i = 1; i < 1000; i++) {
       let newLetter = charArray[Math.floor(Math.random() * 75)];
@@ -154,7 +166,7 @@ const TypingBox = () => {
         let newLetter = charArray[Math.floor(Math.random() * 75)];
 
         //adds a line break every 36 characters
-        if (i % 36 === 0) {
+        if (i % 45 === 0) {
           newLetter = "\n";
         }
         chaosString += newLetter;
@@ -180,8 +192,8 @@ const TypingBox = () => {
       timer--;
       document.getElementById("timestring").innerHTML = timer;
       console.log(timer);
-      if (timer === 1) {
-        clearInterval(timer);
+      if (timer === 0) {
+        clearInterval(clockTimer);
         timer = 0;
         if (testType) {
           scoreResultsNorm();
@@ -282,37 +294,34 @@ const TypingBox = () => {
   return (
     <div>
       <div className="timer col-md-12">
-        {/* <div className="time">{timer}s</div> */}
-        {/* <div className="time-string-container"> */}
         <p id="timestring">{timer}</p>
-        {/* </div> */}
 
         <div className="row justify-content-center">
           <button
-            className="norm-button button-primary text-center"
-            onClick={generateNormTest}
-          >
-            {/* {isActive ? "" : ""} */}
+            className="testType-button"
+            id="norm-button"
+            onClick={generateNormTest}>
             Normal Mode
           </button>
+
           <button
-            // className="chaos-button" onClick={this.handleClick}>
-            className="chaos-button"
-            onClick={generateChaosTest}
-          >
+            className="testType-button"
+            id="chaos-button"
+            onClick={generateChaosTest}>
             Chaos Mode
           </button>
         </div>
       </div>
 
       <div className="type-checker-container col-md-12">
-        <h1 className="mode">Typing Test</h1>
-        <div className="test-string-container col-md-12">
+        <h1 classname="mode">Typing Test</h1>
+        <div className="test-string-container bg-white col-md-12">
           <p id="test-string">{testString}</p>
         </div>
         <p id="userwpm">{userwpm}</p>
         <textarea
-          className="text-area col-md-12"
+          className="text-area col-md-12 read-only"
+          style={{ width: "100%", height: "200px" }}
           id="userinput"
           onChange={handleOnStringMatch}
           //just to make the field editable for now

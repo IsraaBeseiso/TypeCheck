@@ -5,14 +5,14 @@ const db = require("./config");
 const logger = require("morgan");
 const cors = require("cors");
 const path = require("path");
-//const expressSession = require("express-session");
-//const MongoStore = require("connect-mongo")(expressSession);
+// const expressSession = require("express-session");
+// const MongoStore = require("connect-mongo")(expressSession);
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI);
 
 
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3002;
 // MW
 const app = express();
 app.use(helmet());
@@ -28,7 +28,7 @@ app.use(cors());
 //       resave: true,
 //       saveUninitialized: true,
 //       cookie: { secure: true },
-//       //store: new MongoStore({ mongooseConnection: connection }),
+//       store: new MongoStore({ mongooseConnection: connection }),
 //     })
 //   );
 // });

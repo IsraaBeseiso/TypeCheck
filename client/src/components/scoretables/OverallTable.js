@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Container, Table } from "reactstrap";
-import styles from "../../styles/tables.scss";
+// import "../styles/app.scss";
 
 function OverallTable(props) {
   console.log(props.overall);
@@ -15,9 +15,9 @@ function OverallTable(props) {
           </tr>
         </thead>
         <tbody>
-          {props.overall.map((scores) => (
+          {props.overall.map((scores, index) => (
             <tr key={scores.id}>
-              <td></td>
+              <td>{index + 1}</td>
               <td>{scores.username}</td>
               <td>{scores.score}</td>
             </tr>

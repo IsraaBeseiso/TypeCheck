@@ -1,10 +1,9 @@
 import React from "react";
 import ChaosScoreTable from "../components/scoretables/ChaosScoreTable";
 import NormScoreTable from "../components/scoretables/NormScoreTable";
-import Timer from "../components/Timer";
 import { Row, Col } from "reactstrap";
 import TypingBox from "../components/typing/TypingBox";
-import "../styles/home.scss";
+import "../styles/app.scss"
 
 function Home() {
   return (

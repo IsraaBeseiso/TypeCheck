@@ -1,6 +1,6 @@
 import React from "react";
 // import { Table } from "reactstrap";
-import styles from "../../styles/tables.scss";
+// import "../styles/app.scss";
 
 function OverallTable(props) {
   console.log(props.personal);
@@ -20,10 +20,10 @@ function OverallTable(props) {
           </tr>
         </thead>
         <tbody>
-          {props.personal.map((scores) => (
+          {props.personal.map((scores, index) => (
             <tr key={scores.id}>
-              <td></td>
-              <td>{scores.date}</td>
+              <td>{index + 1}</td>
+              <td>{new Date(scores.date).getMonth() + 1}/{new Date(scores.date).getDate()}/{new Date(scores.date).getFullYear()}</td>
               <td>{scores.score}</td>
             </tr>
           ))}

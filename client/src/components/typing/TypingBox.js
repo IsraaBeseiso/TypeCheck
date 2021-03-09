@@ -297,6 +297,7 @@ const TypingBox = () => {
             {isActive ? "" : ""}
             Normal Mode
           </button>
+          
           <button
             // className="chaos-button" onClick={this.handleClick}>
             className="chaos-button"

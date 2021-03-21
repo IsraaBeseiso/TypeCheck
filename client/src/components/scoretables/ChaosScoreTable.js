@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Col, Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
-// import "../styles/app.scss";
+// import "../styles/tables.scss";
 import OverallTable from "./OverallTable";
 import PersonalTable from "./PersonalTable";
+
 function ChaosScoreTable() {
   const [state, setState] = useState({ topchaos: [], toppersonalchaos: [] })
   useEffect(() => {

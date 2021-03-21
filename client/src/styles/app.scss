@@ -72,7 +72,6 @@ td {
 
 .type-checker-container {
   width: 100%;
-
 }
 
 .testType-button {
@@ -82,4 +81,9 @@ td {
 }
 .active-button {
   display: none;
+}
+
+
+#userinput {
+  background-color: $verylight;
 }

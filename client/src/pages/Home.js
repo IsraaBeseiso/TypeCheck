@@ -4,10 +4,13 @@ import NormScoreTable from "../components/scoretables/NormScoreTable";
 import { Row, Col } from "reactstrap";
 import TypingBox from "../components/typing/TypingBox";
 import "../styles/app.scss"
+import Navbar from "../components/Navbar"
 
 function Home() {
+
   return (
     <div>
+
       <Row>
         <Col>
           <NormScoreTable />

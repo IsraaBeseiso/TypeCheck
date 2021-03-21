@@ -9,6 +9,7 @@ import {
   NavLink,
   NavbarText,
 } from "reactstrap";
+import "../styles/app.scss"
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,17 +34,6 @@ const Navigation = (props) => {
             <NavItem>
               <NavLink href="./RegisterForm">Login/Register</NavLink>
             </NavItem>
-            {/* <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>My Dashboard</DropdownItem>
-                <DropdownItem>Login</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown> */}
           </Nav>
           <NavbarText>Welcome!</NavbarText>
         </Collapse>
